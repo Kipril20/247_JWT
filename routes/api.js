@@ -8,8 +8,10 @@ const authMiddleware = require("../middleware/authMiddleware");
 router.post("/register", userController.register);
 router.post("/login", userController.login);
 
+router.post("/komik", komikController.createKomik);
 router.get("/komik", komikController.getAllKomik);
-router.get("/komik/:id", authMiddleware, komikController.updateKomik);
+router.get("/komik/:id", komikController.getKomikById);
+router.put("/komik/:id", authMiddleware, komikController.updateKomik);
 router.delete("/komik/:id", authMiddleware, komikController.deleteKomik);
 
 module.exports = router;
